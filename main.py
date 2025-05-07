@@ -6,7 +6,7 @@ import os
 import subprocess
 from uuid import uuid4
 
-API_TOKEN = 'YOUR_BOT_TOKEN'
+API_TOKEN = '7958617447:AAEi_efhiSUGwwxOJcUSDlJ3qCCofcKrVsA'
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
