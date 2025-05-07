@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: voice-video-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: API_TOKEN
+        value: ТВОЙ_ТОКЕН_БОТА
