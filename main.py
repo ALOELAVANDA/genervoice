@@ -1,4 +1,3 @@
-// voice_video_bot/main.py
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InputFile
 from aiogram.utils import executor
@@ -6,7 +5,7 @@ import os
 import subprocess
 from uuid import uuid4
 
-API_TOKEN = '7958617447:AAEi_efhiSUGwwxOJcUSDlJ3qCCofcKrVsA'
+API_TOKEN = os.getenv('API_TOKEN')
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
@@ -28,7 +27,7 @@ async def handle_video(message: types.Message):
     input_path = video.name
     output_path = f"{uuid4()}.mp4"
 
-    cmd = f"ffmpeg -i {input_path} -vf \"scale=240:240:force_original_aspect_ratio=decrease,pad=240:240:(ow-iw)/2:(oh-ih)/2\" -c:v libx264 -preset fast -crf 23 -pix_fmt yuv420p {output_path}"
+    cmd = f"ffmpeg -i {input_path} -vf "scale=240:240:force_original_aspect_ratio=decrease,pad=240:240:(ow-iw)/2:(oh-ih)/2" -c:v libx264 -preset fast -crf 23 -pix_fmt yuv420p {output_path}"
     subprocess.run(cmd, shell=True)
 
     await message.reply_video(video=InputFile(output_path), supports_streaming=True)
