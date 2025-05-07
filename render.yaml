@@ -7,4 +7,4 @@ services:
     startCommand: python main.py
     envVars:
       - key: API_TOKEN
-        value: ТВОЙ_ТОКЕН_БОТА
+        value: 7958617447:AAEi_efhiSUGwwxOJcUSDlJ3qCCofcKrVsA
